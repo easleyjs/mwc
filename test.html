@@ -1,0 +1,187 @@
+<html>
+<head>
+<title>test page</title>
+
+<style>
+body
+{
+margin-left:20%;
+background-color:#FFFEF9;
+}
+table
+{
+font-family:Arial, Helvetica, sans-serif;
+width:75%;
+border-collapse:collapse;
+}
+table td, table th 
+{
+font-size:0.80em;
+border:1px solid #132921;
+padding:2px 4px 2px 4px;
+text-align:center;
+width:10%;
+}
+table th 
+{
+font-size:0.85em;
+text-align:center;
+padding-top:4px;
+padding-bottom:4px;
+background-color:#000000;
+color:#FFFFFF;
+margin-bottom:5px;
+}
+table tr.alt td 
+{
+color:#000000;
+background-color:#EBEAE5;
+font-weight:bold;
+}
+table th.subhdr
+{
+margin-top:5%;
+background-color:#9E9E9B;
+color:282C2E;
+}
+</style>
+
+</head>
+<body>
+
+
+<h2>Warband Name</h2>
+
+<ul>
+	<li>XXX GC</li>
+	<li> XX Wyrdstone Shards</li>
+	<li>XX / MAX Members</li>
+</ul>
+<h2>Groups</h2>
+
+<button>Add Member</button>
+<button>Edit Equipment</button>
+<button>Edit Stats</button>
+<button>Edit Skills</button>
+<button>Edit Spells</button>
+<button>Edit Experience</button>
+<button>Edit Injuries</button>
+
+<table>
+<tr>
+<th colspan="6">Summary</th>
+</tr>
+<tr class="alt">
+<td>Group Name</td>
+<td>Type</td>
+<td>Unit Type</td>
+<td>Members</td>
+<td>Experience</td>
+<td>Injuries</td>
+</tr>
+<tr>
+<td><span id="groupXName">Some Group Name</span></td>
+<td><span id="groupXType">Henchmen</span></td>
+<td><span id="groupXUnitType">Clanrats</span></td>
+<td><span id="groupXCount">5</span> / <span id="groupXMax">5</span></td>
+<td><span id="groupXXP">6</span></td>
+<td><ul><li>Some injury</li></ul></td>
+</tr>
+</table>
+<br>
+<table>
+<tr>
+<th colspan="9">Stats</th>
+</tr>
+<tr class="alt">
+<td>M</td>
+<td>WS</td>
+<td>BS</td>
+<td>S</td>
+<td>T</td>
+<td>W</td>
+<td>I</td>
+<td>A</td>
+<td>LD</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+<td>5</td>
+</tr>
+</table>
+<br>
+
+<table>
+<tr>
+<th colspan="5">Equipment</th>
+</tr>
+<tr>
+<th colspan="5" class="subhdr">Weapons</th>
+</tr>
+<tr class="alt">
+<td>Melee #1:</td>
+<td>Melee #2:</td>
+<td>Melee #3:</td>
+<td>Range #1:</td>
+<td>Range #2:</td>
+</tr>
+<tr>
+<td><select><option>Weapon</option></select></td>
+<td><select><option>Weapon</option></select></td>
+<td><select><option>Weapon</option></select></td>
+<td><select><option>Weapon</option></select></td>
+<td><select><option>Weapon</option></select></td>
+</tr>
+<tr>
+<th colspan="2" class="subhdr">Armor</th>
+</tr>
+<tr class="alt">
+<td>Armor</td>
+<td>Shield</td>
+</tr>
+<tr>
+<td><select><option>Armor</option></select></td>
+<td><select><option>Shield</option></select></td>
+</tr>
+</table>
+<br>
+<table>
+<tr>
+<th colspan="5">Additional Attributes</th>
+</tr>
+<tr>
+<th colspan="3" class="subhdr">Skills and Abilities</th>
+</tr>
+<tr class="alt">
+<td>Skills</td>
+<td>Spells</td>
+<td>Special Rules</td>
+</tr>
+<tr>
+<td><ul><li>Marksmanship</li></ul></td>
+<td>Eye of the Horned Rat</td>
+<td>Causes Fear</td>
+</tr>
+<tr>
+<th class="subhdr" colspan="3">Misc.</th>
+</tr>
+<tr colspan="3" class="alt">
+<td colspan="3">Notes</td>
+</tr>
+<tr>
+<td colspan="3"><textarea rows="5" cols="80"></textarea></td>
+</tr>
+</table>
+<br>
+</body>
+
+
+
+</html>
