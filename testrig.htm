@@ -103,12 +103,7 @@ input[type=radio]:checked + label {
 			<div class="divBarrier"></div>
 			<label for="unitClass">Unit Class</label>
 				<br>
-				<select name="unitClass" id="unitClass" class="classSelect" value="">
-					<option></option>
-					<option>Test</option>
-					<option>Test 2</option>
-					<option>Some super long option name.</option>
-				</select>
+				<select name="unitClass" id="unitClass" class="classSelect" value=""></select>
 			<div class="divBarrier"></div>
 			<div class="spinnerset">
 				<label for="grpAmt">Members</label>
@@ -135,77 +130,43 @@ input[type=radio]:checked + label {
 			<div id="meleeItems" class="spinnerset">
 				<label for="melee1Select">Melee Weapon #1</label>
 				<br>
-				<select name="melee1Select" class="itemSelect">
-					<option>Some sword</option>
-					<option>Some sword</option>
-					<option>Fighting Claws (35gp)</option>
-				</select>
+				<select name="melee1Select" class="itemSelect"></select>
 			</div>
 			<div id="rngItems" class="spinnerset">
 				<label for="rng1Select">Range Weapon #1</label>
 				<br>
-				<select name="rng1Select" class="itemSelect">
-					<option>Elvish Crossbow (25gp)</option>
-					<option>Some sword</option>
-					<option>Ninja Stars</option>
-				</select>
+				<select name="rng1Select" class="itemSelect"></select>
 			</div>
 			<div class="divBarrier"></div>
 			<div id="armrItems" class="spinnerset">
 				<label for="armr1Select">Armor</label>
 				<br>
-				<select name="armr1Select" class="itemSelect">
-					<option>Crappy Armor (5gp)</option>
-					<option>Some sword</option>
-					<option>Dwarven Mithril (5gp)</option>
-				</select>
+				<select name="armr1Select" class="itemSelect"></select>
 			</div>
 			<div id="shldItems" class="spinnerset">
 				<label for="shldSelect">Shield</label>
 				<br>
-				<select name="shldSelect" class="itemSelect">
-					<option>Some sword</option>
-					<option>Some sword</option>
-					<option>Ninja Stars</option>
-				</select>
+				<select name="shldSelect" class="itemSelect"></select>
 			</div>
 			<div class="divBarrier"></div>
 			<div id="skills" class="multiSelectSet">
 				<label for="skillSelect">Skills</label>
 				<br>
-				<select name="skillSelect" id="skillSelect" class="multiSelect" multiple>
-					<option>Skill 1</option>
-					<option>Skill 2</option>
-					<option>Skill 3</option>
-					<option>Skill 3</option>
-					<option>Skill 3</option>
-				</select>
+				<select name="skillSelect" id="skillSelect" class="multiSelect" multiple></select>
 				<br>
 			</div>
 			<div class="divBarrier"></div>
 			<div id="spells" class="multiSelectSet">
 				<label for="spellSelect">Spells</label>
 				<br>
-				<select name="spellSelect" id="spellSelect" class="multiSelect" multiple>
-					<option>Spell 1</option>
-					<option>Spell 2</option>
-					<option>Spell 3</option>
-					<option>Spell 3</option>
-					<option>Spell 3</option>
-				</select>
+				<select name="spellSelect" id="spellSelect" class="multiSelect" multiple></select>
 				<br>
 			</div>
 			<div class="divBarrier"></div>
 			<div id="mutations" class="multiSelectSet">
 				<label for="mutatSelect">Mutations</label>
 				<br>
-				<select name="mutatSelect" id="mutatSelect" class="multiSelect" multiple>
-					<option>Skill 1</option>
-					<option>Skill 2</option>
-					<option>Skill 3</option>
-					<option>Skill 3</option>
-					<option>Skill 3</option>
-				</select>
+				<select name="mutatSelect" id="mutatSelect" class="multiSelect" multiple></select>
 				<br>
 			</div>
 		</fieldset>
@@ -214,6 +175,10 @@ input[type=radio]:checked + label {
 
 
 <p id="grpCntInt">0</p>
+
+<select name="raceSelect" id="raceSelect"></select>
+
+
 <button id="addGrpButton">Add Group</button>
 <span id="grpSaveSuccessMsg" style="display: none;"> ... Group saved</span>
 <span id="grpSaveErrorMsg" style="display: none;"> ... Error</span>

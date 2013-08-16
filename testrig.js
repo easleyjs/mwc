@@ -11,10 +11,15 @@ $(document).ready(function() {
 
 
 	// var obj = jQuery.parseJSON('{
+	// array.splice(array.length,0,"thing_one","thing_two"); // can remove X number of elements.. denoted by 2nd position
+	// array.push()   // add elements to end of array.
+
+	var raceList = new Array({id:1,name:"Skaven"},{id:2,name:"Undead"});
 
 	function warband() {
 		this.game = ""; // seq. #/PK in the db for parent game type (mordheim/coreheim)
-		this.wbId = ""; // sequence/PK # in the db for this warband.
+		this.race = ""; // int. seq. #/PK from the db for the parent race type.
+		this.wbId = ""; // int. sequence/PK # in the db for this unique warband.
 		this.wbName = ""; // string.
 		this.groups = []; // array of Group objs.
 		this.wbRating = ""; // int.
@@ -115,7 +120,19 @@ $(document).ready(function() {
 		this.spells = []; // array of strings (maybe later objs, if I decide to put descriptions of spells in.)
 	};
 
-	//alert(obj.group[0].groupId); // canary for testing.
+	//eventually functionize this so that generic SELECT elements can be populated with it.
+	//function populateSelect( selectId, fieldName, objArray ) {};
+	$("#raceSelect").append(
+							$("<option></option>")
+								.text("-- Select Race --"));
+	for (var i=0;i<raceList.length;i++){
+		$("#raceSelect").append(
+								$("<option></option>")
+									.attr("value", raceList[i].id)
+									.text(raceList[i].name));
+	};
+
+	//alert(raceList[1].name); // canary for testing.
 
 	var numGroupsInt = 0;
 	$("#newGrpEditorDiv").hide();
