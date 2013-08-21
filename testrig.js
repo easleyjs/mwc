@@ -1,21 +1,3 @@
-/*
-	to-do: initial prompt for new group - Hero / Henchman, Unit Type (to determine, spellcaster, etc.)
-	create 3 different DIV "editors" for Hero, Henchman, Spellcaster
-	(behind the scenes, this will do an ajax req for JSON object that has that info.)
-*/
-
-/*
-	Initial page prepping. Hide the editor.
-*/
-$(document).ready(function() {
-
-
-	// var obj = jQuery.parseJSON('{
-	// array.splice(array.length,0,"thing_one","thing_two"); // can remove X number of elements.. denoted by 2nd position
-	// array.push()   // add elements to end of array.
-
-	var raceList = new Array({id:1,name:"Skaven"},{id:2,name:"Undead"});
-
 	function warband() {
 		this.game = ""; // seq. #/PK in the db for parent game type (mordheim/coreheim)
 		this.race = ""; // int. seq. #/PK from the db for the parent race type.
@@ -119,23 +101,47 @@ $(document).ready(function() {
 		this.mutations = []; // array of objs w/ info about the mutation(s)
 		this.spells = []; // array of strings (maybe later objs, if I decide to put descriptions of spells in.)
 	};
+/*
+	Initial page prepping. Hide the editor.
+*/
+$(document).ready(function() {
 
-	//eventually functionize this so that generic SELECT elements can be populated with it.
-	//function populateSelect( selectId, fieldName, objArray ) {};
-	$("#raceSelect").append(
-							$("<option></option>")
-								.text("-- Select Race --"));
-	for (var i=0;i<raceList.length;i++){
-		$("#raceSelect").append(
+
+	// var obj = jQuery.parseJSON('{
+	// array.splice(array.length,0,"thing_one","thing_two"); // can remove X number of elements.. denoted by 2nd position
+	// array.push()   // add elements to end of array.
+
+	var raceList = new Array({id:1,name:"Skaven"},{id:2,name:"Undead"});
+
+
+	$("<p>hidey ho</p>").appendTo( "body" );
+
+	// parent obj field?
+	function createSelect( selectId, fieldName, objArray, selectClasses ) {
+		this.selectId = selectId;
+		this.fieldName = fieldName;
+		this.objArray = objArray;
+		this.selectClasses = selectClasses;
+		$(newSelect) = $("<select></select>", {"id": this.selectId});
+			)
+		$(newSelect).append(
 								$("<option></option>")
-									.attr("value", raceList[i].id)
-									.text(raceList[i].name));
+									.text("-- Select " + fieldName + " --"));
+		for (var i=0;i<objArray.length;i++){
+			$(newSelect).append(
+									$("<option></option>")
+										.attr("value", objArray[i].id)
+										.text(objArray[i].name));
+		};
+		return $(newSelect)
 	};
+
+	// $(newSelect) = createSelect("#raceSelect","Race",raceList,""));
+
 
 	//alert(raceList[1].name); // canary for testing.
 
 	var numGroupsInt = 0;
-	$("#newGrpEditorDiv").hide();
 	/*
 		Add Group button functionality.
 	*/
