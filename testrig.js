@@ -1,106 +1,161 @@
-	function warband() {
-		this.game = ""; // seq. #/PK in the db for parent game type (mordheim/coreheim)
-		this.race = ""; // int. seq. #/PK from the db for the parent race type.
-		this.wbId = ""; // int. sequence/PK # in the db for this unique warband.
-		this.wbName = ""; // string.
-		this.groups = []; // array of Group objs.
-		this.wbRating = ""; // int.
-		this.unitCount = ""; // int. Regular (hero/henchman units.)
-		this.dPCount = ""; // int. Dramatis Personae units.
-		this.hSwordCount = ""; // int. Hired Sword units.
-		this.lGCreatureCount = ""; // int. Large creature units.
-		this.items = []; // array of int index references to wb item list. (maybe objs later w/ descriptions and such.)
-		this.gCAmt = ""; // int. Gold Crowns amount.
-		this.wShardsAmt = ""; // int. Warpstone Shards amount.
-		/*
-		this.wins = ""; // int. to be implemented with logging features.
-		this.losses = ""; // int. to be implemented with logging features.
-		this.draws = ""; // int. to be implemented with logging features.
-		this.logEntries = []; // array of objs. to be implemented with logging features.
-		*/
-		/*
-		functions:
-		deriveWbRating
-		updateTroopCounts // regular, large creatures, DPs, H Swords, etc.
-		*/
-	}
+function warband() {
+	this.game = ""; // seq. #/PK in the db for parent game type (mordheim/coreheim)
+	this.race = ""; // int. seq. #/PK from the db for the parent race type.
+	this.wbId = ""; // int. sequence/PK # in the db for this unique warband.
+	this.wbName = ""; // string.
+	this.groups = []; // array of Group objs.
+	this.wbRating = ""; // int.
+	this.unitCount = ""; // int. Regular (hero/henchman units.)
+	this.dPCount = ""; // int. Dramatis Personae units.
+	this.hSwordCount = ""; // int. Hired Sword units.
+	this.lGCreatureCount = ""; // int. Large creature units.
+	this.items = []; // array of int index references to wb item list. (maybe objs later w/ descriptions and such.)
+	this.gCAmt = ""; // int. Gold Crowns amount.
+	this.wShardsAmt = ""; // int. Warpstone Shards amount.
+	/*
+	this.wins = ""; // int. to be implemented with logging features.
+	this.losses = ""; // int. to be implemented with logging features.
+	this.draws = ""; // int. to be implemented with logging features.
+	this.logEntries = []; // array of objs. to be implemented with logging features.
+	*/
+	/*
+	functions:
+	deriveWbRating
+	updateTroopCounts // regular, large creatures, DPs, H Swords, etc.
+	*/
+};
 
-	function unit() {
-		this.unitId = ""; // sequence/PK # in the db for this group's parent unit.
-		this.rank = ""; // string (or int?) Hero/Henchman/Dramatis Personae/Hired Sword/etc.
-		this.isLdr = ""; // bool? Is this the leader unit?
-		this.isCaster = ""; // boolean? Is this unit a spellcaster?
-		this.isLgCreature = ""; // boolean? Is this a large creature?
-		this.unitMaxAmt = ""; // int. total # of units of this type allowed in warband.
-		this.groupSizeAmt = ""; // int. # of units per group.
-		this.usesRankItemTable = "";
-		this.canUseItems = ""; // double check logic on this. boolean?
-		this.canUseMutations = ""; // boolean?
-		this.skillTrees = [];  // array of strings
-		this.spellTrees = [];  // array of strings
-		this.startXp = "";
-		this.canGainXp = "";
-		this.std_cost = "";
-		this.std_mvmt = "";
-		this.max_mvmt = "";
-		this.std_ws = "";
-		this.max_ws = "";
-		this.std_bs = "";
-		this.max_bs = "";
-		this.std_str = "";
-		this.max_str = "";
-		this.std_t = "";
-		this.max_t = "";
-		this.std_wnd = "";
-		this.max_wnd = "";
-		this.std_init = "";
-		this.max_init = "";
-		this.std_atk = "";
-		this.max_atk = "";
-		this.std_ld = "";
-		this.max_ld = "";
-		this.specRules = []; // array of strings for spec. rules such as "causes fear", etc.
-		// DP/Hired Sword fields:
-		this.armor = "";
-		this.shield = "";
-		this.melee = [];
-		this.ranged = [];
-		this.items = [];
-	};
+function unit() {
+	this.unitId = ""; // sequence/PK # in the db for this group's parent unit.
+	this.rank = ""; // string (or int?) Hero/Henchman/Dramatis Personae/Hired Sword/etc.
+	this.isLdr = ""; // bool? Is this the leader unit?
+	this.isCaster = ""; // boolean? Is this unit a spellcaster?
+	this.isLgCreature = ""; // boolean? Is this a large creature?
+	this.unitMaxAmt = ""; // int. total # of units of this type allowed in warband.
+	this.groupSizeAmt = ""; // int. # of units per group.
+	this.usesRankItemTable = "";
+	this.canUseItems = ""; // double check logic on this. boolean?
+	this.canUseMutations = ""; // boolean?
+	this.skillTrees = [];  // array of strings
+	this.spellTrees = [];  // array of strings
+	this.startXp = "";
+	this.canGainXp = "";
+	this.std_cost = "";
+	this.std_mvmt = "";
+	this.max_mvmt = "";
+	this.std_ws = "";
+	this.max_ws = "";
+	this.std_bs = "";
+	this.max_bs = "";
+	this.std_str = "";
+	this.max_str = "";
+	this.std_t = "";
+	this.max_t = "";
+	this.std_wnd = "";
+	this.max_wnd = "";
+	this.std_init = "";
+	this.max_init = "";
+	this.std_atk = "";
+	this.max_atk = "";
+	this.std_ld = "";
+	this.max_ld = "";
+	this.specRules = []; // array of strings for spec. rules such as "causes fear", etc.
+	// DP/Hired Sword fields:
+	this.armor = "";
+	this.shield = "";
+	this.melee = [];
+	this.ranged = [];
+	this.items = [];
+};
 
-	function group(groupId,unitIdx,rank,unitCount
-				   ,names,xp,cur_cost,cur_mvmt,cur_ws
-				   ,cur_bs,cur_str,cur_t,cur_wnd
-				   ,cur_init,cur_atk,cur_ld
-				   ,armor,shield,melee,ranged,items
-				   ,notes) {
-		this.groupId = ""; // int. sequence/PK # in the db for this group.
-		this.unitIdx = ""; // int. index # in the unit reference obj's array for this group's parent unit.
-		this.unitCount = ""; // int. current # of units in this group. 
-		this.names = []; // strings.
-		this.xp = ""; // int. current amount of xp accrued by this group.
-		this.cur_cost = "";
-		this.cur_mvmt = "";
-		this.cur_ws = "";
-		this.cur_bs = "";
-		this.cur_str = "";
-		this.cur_t = "";
-		this.cur_wnd = "";
-		this.cur_init = "";
-		this.cur_atk = "";
-		this.cur_ld = "";
-		this.armor = ""; // int. index ref to armor ref obj array
-		this.shield = ""; // int. index ref to shield ref obj array
-		this.melee = []; // int. index refs to melee ref obj array
-		this.ranged = []; // int. index refs to ranged ref obj array
-		this.items = []; // int. index refs to item ref obj array
-		this.notes = "";
-		// Hero-related vars
-		this.injuries = []; // array of objs w/ info about each injury.
-		this.skills = []; // array of strings (maybe later, objs. if skills modify stats, etc.)
-		this.mutations = []; // array of objs w/ info about the mutation(s)
-		this.spells = []; // array of strings (maybe later objs, if I decide to put descriptions of spells in.)
+function group(groupId,unitIdx,rank,unitCount
+			   ,names,xp,cur_cost,cur_mvmt,cur_ws
+			   ,cur_bs,cur_str,cur_t,cur_wnd
+			   ,cur_init,cur_atk,cur_ld
+			   ,armor,shield,melee,ranged,items
+			   ,notes) {
+	this.groupId = ""; // int. sequence/PK # in the db for this group.
+	this.unitIdx = ""; // int. index # in the unit reference obj's array for this group's parent unit.
+	this.unitCount = ""; // int. current # of units in this group. 
+	this.names = []; // strings.
+	this.xp = ""; // int. current amount of xp accrued by this group.
+	this.cur_cost = "";
+	this.cur_mvmt = "";
+	this.cur_ws = "";
+	this.cur_bs = "";
+	this.cur_str = "";
+	this.cur_t = "";
+	this.cur_wnd = "";
+	this.cur_init = "";
+	this.cur_atk = "";
+	this.cur_ld = "";
+	this.armor = ""; // int. index ref to armor ref obj array
+	this.shield = ""; // int. index ref to shield ref obj array
+	this.melee = []; // int. index refs to melee ref obj array
+	this.ranged = []; // int. index refs to ranged ref obj array
+	this.items = []; // int. index refs to item ref obj array
+	this.notes = "";
+	// Hero-related vars
+	this.injuries = []; // array of objs w/ info about each injury.
+	this.skills = []; // array of strings (maybe later, objs. if skills modify stats, etc.)
+	this.mutations = []; // array of objs w/ info about the mutation(s)
+	this.spells = []; // array of strings (maybe later objs, if I decide to put descriptions of spells in.)
+};
+function createLabel( elementId, labelTxt, labelClass ){
+	this.elementId = elementId;
+	this.labelTxt = labelTxt;
+	this.labelClass = labelClass;
+	$newLabel = $("<label></label>", {"for": this.elementId, "text":labelTxt, "class":labelClass});
+	$newLabel.append("<br>");
+	return $newLabel
+};
+function createSelect( selectId, fieldName, objArray, selectClass ) {
+	this.selectId = selectId;
+	this.fieldName = fieldName;
+	this.objArray = objArray;
+	this.selectClass = selectClass;
+	$newSelect = $("<select></select>", {"id": this.selectId, "class": this.selectClass});
+	$newSelect.append($("<option></option>")
+								.text("-- Select " + fieldName + " --"));
+	for (var i=0;i<objArray.length;i++){
+		$newSelect.append($("<option></option>")
+									.attr("value", objArray[i].id)
+									.text(objArray[i].name));
 	};
+	return $newSelect;
+};
+function populateSelect( selectId, fieldName, objArray ) {
+	this.selectId = "#" + selectId;
+	this.fieldName = fieldName;
+	this.objArray = objArray;
+	$(this.selectId).append($("<option></option>")
+								.text("-- Select " + fieldName + " --"));
+	for (var i=0;i<objArray.length;i++){
+		$(this.selectId).append($("<option></option>")
+									.attr("value", objArray[i].id)
+									.text(objArray[i].name));
+	};
+};
+function createInput( inputId, fieldName, inputClass ) {
+	this.inputId = inputId;
+	this.fieldName = fieldName;
+	// this.objArray = objArray;
+	this.inputClass = inputClass;
+	$newInput = $("<input></input>", {"id": this.inputId, "class": this.inputClass});
+	return $newInput;
+};
+function createSpinner( spinnerId, fieldName, minAmt, maxAmt, spinnerClass ) {
+	this.spinnerId = spinnerId;
+	this.fieldName = fieldName;
+	this.minAmt = minAmt;
+	this.maxAmt = maxAmt;
+	this.spinnerClass = spinnerClass;
+	$newSpinner = $("<input></input>", {"id": this.spinnerId, "class": this.spinnerClass});
+	$newSpinner.spinner({"min": minAmt, "max": maxAmt});
+	// $newSpinner.spinner("enable");
+
+	return $newSpinner;
+};
 /*
 	Initial page prepping. Hide the editor.
 */
@@ -113,35 +168,58 @@ $(document).ready(function() {
 
 	var raceList = new Array({id:1,name:"Skaven"},{id:2,name:"Undead"});
 
+	//createLabel("raceSelect","Select a race").appendTo("#wb-fields");
 
-	$("<p>hidey ho</p>").appendTo( "body" );
+	// createSelect("raceSelect","Race",raceList,"").appendTo("#wb-fields");
 
-	// parent obj field?
-	function createSelect( selectId, fieldName, objArray, selectClasses ) {
-		this.selectId = selectId;
-		this.fieldName = fieldName;
-		this.objArray = objArray;
-		this.selectClasses = selectClasses;
-		$(newSelect) = $("<select></select>", {"id": this.selectId});
-			)
-		$(newSelect).append(
-								$("<option></option>")
-									.text("-- Select " + fieldName + " --"));
-		for (var i=0;i<objArray.length;i++){
-			$(newSelect).append(
-									$("<option></option>")
-										.attr("value", objArray[i].id)
-										.text(objArray[i].name));
-		};
-		return $(newSelect)
-	};
+	// createLabel("testSpinner","Test Spinner").appendTo("wb-fields");
 
-	// $(newSelect) = createSelect("#raceSelect","Race",raceList,""));
+	// createSpinner("testSpinner", "testSpinner", "0", "4", "").appendTo("#wb-fields");
 
+
+	// $("#testInput").spinner({ min: $someMin, max: $someMax}); // unfortunately necessary to make spinner (?)
 
 	//alert(raceList[1].name); // canary for testing.
 
 	var numGroupsInt = 0;
+
+
+
+	$( "#wb-form" ).dialog({
+	autoOpen: false,
+	height: 350,
+	width: 320,
+	modal: true,
+	buttons: {
+		"Create Warband": function() {
+			var bValid = true;
+			allFields.removeClass( "ui-state-error" );
+			/*
+			bValid = bValid && checkLength( name, "username", 3, 16 );
+			bValid = bValid && checkLength( email, "email", 6, 80 );
+			bValid = bValid && checkLength( password, "password", 5, 16 );
+			bValid = bValid && checkRegexp( name, /^[a-z]([0-9a-z_])+$/i, "Username may consist of a-z, 0-9, underscores, begin with a letter." );
+			// From jquery.validate.js (by joern), contributed by Scott Gonzalez: http://projects.scottsplayground.com/email_address_validation/
+			bValid = bValid && checkRegexp( email, /^((([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+(\.([a-z]|\d|[!#\$%&'\*\+\-\/=\?\^_`{\|}~]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])+)*)|((\x22)((((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(([\x01-\x08\x0b\x0c\x0e-\x1f\x7f]|\x21|[\x23-\x5b]|[\x5d-\x7e]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(\\([\x01-\x09\x0b\x0c\x0d-\x7f]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))))*(((\x20|\x09)*(\x0d\x0a))?(\x20|\x09)+)?(\x22)))@((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?$/i, "eg. ui@jquery.com" );
+			bValid = bValid && checkRegexp( password, /^([0-9a-zA-Z])+$/, "Password field only allow : a-z 0-9" );
+			if ( bValid ) {
+			$( "#users tbody" ).append( "<tr>" +
+			"<td>" + name.val() + "</td>" +
+			"<td>" + email.val() + "</td>" +
+			"<td>" + password.val() + "</td>" +
+			"</tr>" );
+			$( this ).dialog( "close" );
+			}*/
+			}
+		}
+	});
+
+	
+	populateSelect("wb-race","Race", raceList);
+	$("#wb-form").dialog("open");
+
+
+
 	/*
 		Add Group button functionality.
 	*/
@@ -153,12 +231,6 @@ $(document).ready(function() {
 		// need to put this in a loop for all to-be spinner elements.
 		// for weapon amount, make 0 the minimum. then on change, spawn appropriate # dropdowns
 		$( "input[name*='Amt']" ).spinner({ min: 0, max: 5 });
-		/*
-		var spinner = $( "#grpAmt" ).spinner();
-		spinner.spinner( "option", "min", 1 ); // need to set dynamically
-		spinner.spinner( "option", "max", 5 ); // need to set dynamically
-		spinner.spinner( "enable" );
-		*/
 
 		$( "#dialog-form" ).dialog( "open" );
 	});

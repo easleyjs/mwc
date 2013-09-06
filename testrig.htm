@@ -3,6 +3,7 @@
 <head>
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
+<!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script-->
 <style>
 fieldset { padding:0; border:0; margin-top:25px; }
 .fielditem { margin-bottom:2px; }
@@ -93,8 +94,23 @@ input[type=radio]:checked + label {
 <div id="wb-form" title="Create a new Warband">
 <p class="validateTips">All form fields are required.</p>
 <form>
-	<fieldset id="wb-fields"></fieldset>
-
+	<fieldset id="wb-fields">
+		<label for="wb-name">Warband Name</label>
+		<br>
+		<input id="wb-name"></input>
+		<br>
+		<label for="wb-race">Warband Race</input>
+		<br>
+		<select id="wb-race"></select>
+		<br>
+		<label for="wb-gcAmt">Starting Gold Crowns</label>
+		<br>
+		<input id="wb-gcAmt" value="500"></input>
+		<br>
+		<label for="wb-shardsAmt">Starting Warpstone Shards</label>
+		<br>
+		<input id="wb-shardsAmt" value="0"></input>
+	</fieldset>
 </form>
 </div>
 
@@ -183,7 +199,6 @@ input[type=radio]:checked + label {
 
 
 <p id="grpCntInt">0</p>
-
 
 <button id="addGrpButton">Add Group</button>
 <span id="grpSaveSuccessMsg" style="display: none;"> ... Group saved</span>
