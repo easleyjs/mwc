@@ -56,12 +56,12 @@ input[type=radio] + label {
 }
  
 input[type=radio]:checked + label {
-       background-image: none;
+    background-image: none;
     outline: 0;
     -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
     -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-        background-color:#e0e0e0;
+    background-color:#e0e0e0;
 }
 .divBarrier {
 	height:8px;
@@ -146,14 +146,17 @@ table.table1{
     line-height: 1.4em;
     font-style: normal;
     border-collapse:separate;
+    margin-left:auto;
+	margin-right:auto;
+	width:70%;
 }
 .table1 thead th{
     padding:5px;
     color:#fff;
     text-shadow:1px 1px 1px #568F23;
-    border:1px solid #93CE37;
-    border-bottom:3px solid #9ED929;
-    background-color:#9DD929;
+    border:1px solid #000000;
+    border-bottom:3px solid #666666;
+    background-color:#ffffff;
     background:-webkit-gradient(
         linear,
         left bottom,
@@ -164,9 +167,9 @@ table.table1{
         );
     background: -moz-linear-gradient(
         center bottom,
-        rgb(123,192,67) 2%,
-        rgb(139,198,66) 51%,
-        rgb(158,217,41) 87%
+        rgb(60,60,67) 2%,
+        rgb(60,60,66) 51%,
+        rgb(60,60,41) 87%
         );
     -webkit-border-top-left-radius:5px;
     -webkit-border-top-right-radius:5px;
@@ -179,11 +182,11 @@ table.table1{
     border:none;
 }
 .table1 tfoot td{
-    color: #9CD009;
+    color: #666666;
     font-size:32px;
     text-align:center;
     padding:5px 0px;
-    text-shadow:1px 1px 1px #444;
+    text-shadow:1px 1px 1px #666666;
 }
 .table1 tfoot th{
     color:#666;
@@ -191,12 +194,12 @@ table.table1{
 .table1 tbody td{
     padding:5px;
     text-align:center;
-    background-color:#DEF3CA;
-    border: 2px solid #E7EFE0;
+    background-color:#ffffff;
+    border: 2px solid #666666;
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
     border-radius:2px;
-    color:#666;
+    color:#000;
     text-shadow:1px 1px 1px #fff;
 }
 </style>
@@ -334,27 +337,39 @@ table.table1{
 	<thead>
 		<tr>
 			<th scope="col" abbr="Name">Name</th>
+			<th scope="col" abbr="Name">Unit</th>
 			<th scope="col" abbr="Name">Unit Type</th>
 			<th scope="col" abbr="Name">Count</th>
-			<th scope="col" abbr="Name">Rank</th>
 			<th scope="col" abbr="Name">XP</th>
+			<th scope="col" abbr="PriWep">Primary Weapon</th>
+			<th scope="col" abbr="RngWep">Ranged Weapon</th>
+			<th scope="col" abbr="Notes">Notes</th>
+			<th scope="col" abbr="Edit">View / Edit</th>
 		</tr>
 	</thead>
 	<tfoot>
 		<tr>
-			<td>1</td>
-			<td>2</td>
-			<td>3</td>
+			<!-- evenutally unit type totals will go here. -->
 		</tr>
 	</tfoot>
 	<tbody>
 		<tr>
 			<td>Chizzy Whizzleteeth</td>
 			<td>Assassin Adept</td>
+			<td>H</td>
+			<td>1</td>
+			<td>6</td>
+			<td>Dagger</td>
+			<td>Throwing Stars</td>
+			<td>Some notes or something good.</td>
+			<td><button>< --</button></td>
+		</tr>
+		<tr>
+			<td>Some Other guy</td>
+			<td>Plague Monk</td>
 			<td>1</td>
 			<td>H</td>
-			<td>6</td>
-		</tr>
+			<td>4</td>
 	</tbody>
 </table>
 </div>
