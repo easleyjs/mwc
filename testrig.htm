@@ -4,205 +4,7 @@
 <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 <meta content="utf-8" http-equiv="encoding">
 <!--script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script-->
-<style>
-fieldset { padding:0; border:0; margin-top:25px; }
-.fielditem { margin-bottom:2px; }
-div#users-contain { width: 350px; margin: 20px 0; }
-div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
-div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
-.ui-dialog .ui-state-error { padding: .3em; }
-.validateTips { border: 1px solid transparent; padding: 0.3em; }
-
-#classSelect {
-	width: 160px;
-}
-
-.itemSelect {
-	width: 130px;
-}
-
-input[type=radio] {
-    display:none;
-}
- 
-input[type=radio] + label {
-    display:inline-block;
-    margin:-2px;
-    padding: 4px 12px;
-    margin-bottom: 0;
-    /* font-size: 14px; */
-    line-height: 20px;
-    color: #333;
-    text-align: center;
-    text-shadow: 0 1px 1px rgba(255,255,255,0.75);
-    vertical-align: middle;
-    cursor: pointer;
-    background-color: #f5f5f5;
-    background-image: -moz-linear-gradient(top,#fff,#e6e6e6);
-    background-image: -webkit-gradient(linear,0 0,0 100%,from(#fff),to(#e6e6e6));
-    background-image: -webkit-linear-gradient(top,#fff,#e6e6e6);
-    background-image: -o-linear-gradient(top,#fff,#e6e6e6);
-    background-image: linear-gradient(to bottom,#fff,#e6e6e6);
-    background-repeat: repeat-x;
-    border: 1px solid #ccc;
-    border-color: #e6e6e6 #e6e6e6 #bfbfbf;
-    border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
-    border-bottom-color: #b3b3b3;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff',endColorstr='#ffe6e6e6',GradientType=0);
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
-    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
-}
- 
-input[type=radio]:checked + label {
-    background-image: none;
-    outline: 0;
-    -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-    -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
-    background-color:#e0e0e0;
-}
-.divBarrier {
-	height:8px;
-}
-.spinnerfield {
-	width: 25px;
-	margin-right:20px;
-}
-.spinnerset {
-	height: 50px;
-	width: 140px;
-	/*
-	border-style: solid;
-	border-width: 1px;
-	*/
-	float: left;
-}
-.multiSelect {
-	height:auto;
-	width: 160px;
-}
-.multiSelectSet {
-	float: left;
-}
-body
-{
-margin: 0;
-padding: 0;
-}
-div#banner
-{
-color: #fff;
-background-color: #333;
-border-bottom: 1px solid #000;
-}
-div#banner h3
-{
-margin: 0;
-padding: .3em 0 0em .5em;
-font-size: 1.2em;
-font-weight: bolder;
-}
-div#banner text
-{
-	font-size: 0.80em;
-	margin: 0;
-	padding: 0 0 0 5em;
-}
-div#dashboard
-{
-	text-align: center;
-	text-shadow: 1px 1px #d8d9d8;
-	font-weight: bold;
-}
-div#dashboard ul
-{
-list-style-type: none;
-}
-div#dashboard li
-{
-color: #000;
-display: inline;
-margin-right: 1em;
-}
-div#dashboard text
-{
-	font-weight: normal;
-	background-color: #ECEDF0; /*FBFCFF */
-	padding: 2px 3px 2px 3px;
-	border: 1px solid;
-	border-collapse: collapse;
-	border-radius: 3px;
-}
-#wbName
-{
-	font-size: 2em;
-}
-table.table1{
-    font-family: "Trebuchet MS", sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.4em;
-    font-style: normal;
-    border-collapse:separate;
-    margin-left:auto;
-	margin-right:auto;
-	width:70%;
-}
-.table1 thead th{
-    padding:5px;
-    color:#fff;
-    text-shadow:1px 1px 1px #568F23;
-    border:1px solid #000000;
-    border-bottom:3px solid #666666;
-    background-color:#ffffff;
-    background:-webkit-gradient(
-        linear,
-        left bottom,
-        left top,
-        color-stop(0.02, rgb(123,192,67)),
-        color-stop(0.51, rgb(139,198,66)),
-        color-stop(0.87, rgb(158,217,41))
-        );
-    background: -moz-linear-gradient(
-        center bottom,
-        rgb(60,60,67) 2%,
-        rgb(60,60,66) 51%,
-        rgb(60,60,41) 87%
-        );
-    -webkit-border-top-left-radius:5px;
-    -webkit-border-top-right-radius:5px;
-    -moz-border-radius:5px 5px 0px 0px;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
-}
-.table1 thead th:empty{
-    background:transparent;
-    border:none;
-}
-.table1 tfoot td{
-    color: #666666;
-    font-size:32px;
-    text-align:center;
-    padding:5px 0px;
-    text-shadow:1px 1px 1px #666666;
-}
-.table1 tfoot th{
-    color:#666;
-}
-.table1 tbody td{
-    padding:5px;
-    text-align:center;
-    background-color:#ffffff;
-    border: 2px solid #666666;
-    -moz-border-radius:2px;
-    -webkit-border-radius:2px;
-    border-radius:2px;
-    color:#000;
-    text-shadow:1px 1px 1px #fff;
-}
-</style>
+<link rel="stylesheet" href="css/custom.css" />
 <link rel="stylesheet" href="css/jquery-ui.css" />
 </head>
 <body>
@@ -349,7 +151,13 @@ table.table1{
 	</thead>
 	<tfoot>
 		<tr>
-			<!-- evenutally unit type totals will go here. -->
+			<td colspan="8" id="wbUnitCnts">
+				<span>Heroes: <text id="hCnt">1</text></span>
+				<span>Henchmen Groups: <text id="hmCnt">1</text></span>
+				<span>Large Creatures: <text id="lcCnt">1</text></span>
+				<span>Dramatis Personae: <text id="dpCnt">1</text></span>
+				<span>Hired Swords: <text id="hsCnt">1</text></span>
+			</td>
 		</tr>
 	</tfoot>
 	<tbody>
@@ -364,12 +172,6 @@ table.table1{
 			<td>Some notes or something good.</td>
 			<td><button>< --</button></td>
 		</tr>
-		<tr>
-			<td>Some Other guy</td>
-			<td>Plague Monk</td>
-			<td>1</td>
-			<td>H</td>
-			<td>4</td>
 	</tbody>
 </table>
 </div>
